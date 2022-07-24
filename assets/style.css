@@ -46,6 +46,10 @@ input {
     margin: 10px 10px 0 300px;
 }
 
+#nameTitle {
+    display: inline;
+}
+
 #cityWeather {
     margin-left: 300px;
 }
@@ -59,10 +63,17 @@ input {
     color: #fff;
     flex: 1;
     width: 20%;
-    height: 200px;
     margin: 5px;
     padding: 10px;
     border-radius: 7px;
+}
+
+.weatherBlock h3 {
+    font-size: 20px;
+}
+
+.weatherBlock p {
+    font-size: 14px;
 }
 
 /* Larger devices */

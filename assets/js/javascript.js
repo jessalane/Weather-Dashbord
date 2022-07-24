@@ -39,16 +39,18 @@ searchSub.click(function(event) {
 
         // DATA DAILY VARIABLES
         var cityName = data.name;
+        var cityIcon = data.weather[0].icon;
         var cityTemp = data.main.temp;
         var cityWind = data.wind.speed;
         var cityHumid = data.main.humidity;
+        var dateToday = moment().format('L');
 
         // ADDING DATA TO CITY WEATHER SECTION
-        $("#nameTitle").text(cityName + "(moment/date)");
         $("#temp").text("Temp: " + cityTemp + "°F");
         $("#wind").text("Wind: " + cityWind + "MPH");
         $("#humidity").text("Humidity: " + cityHumid + "%");
-        // $("#uv").text("UV Index: " + cityUV);
+        $("#nameTitle").text(cityName + " (" + dateToday + ")");
+        $("#nameTitle").after(" <img src='http://openweathermap.org/img/wn/" + cityIcon + ".png'>");
 
         // LON AND LAT VARIABLES
         var cityLon = data.coord.lon;
@@ -65,24 +67,28 @@ searchSub.click(function(event) {
         .then(function (data) {
             console.log(data);
 
-            // DATA UVI VARIABLES
+            // DATA LAT/LONG SEARCH VARIABLES
             var cityUV = data.current.uvi;
 
-            // ADDING DATA TO WEEKLY FORECAST SECTION
+            // ADDING UV INDEX TO THE CITY DATA SECTION
             $("#uv").text("UV Index: " + cityUV);
 
-            // LOOPING THE DAILY FORECAST
+            // LOOPING THE WEEKLY FORECAST
             for(i = 0; i < 5; i++) {
 
                 // DATA VARIABLES FOR WEEKLY FORECAST
                 var dailyTemp = data.daily[i].temp.max;
+                var dailyIcon = data.daily[i].weather[0].icon;
                 var dailyWind = data.daily[i].wind_speed;
                 var dailyHumid = data.daily[i].humidity;
+                var dateAdd = moment().add(i + 1, 'days').format('L');
 
-                $("#" + i).children("h4").html("insert date");
+                $("#" + i).children("h4").html(dateAdd);
+                $("#" + i).children(".weatherIcon").html("<img src='http://openweathermap.org/img/wn/" + dailyIcon + ".png'>");
                 $("#" + i).children(".temp").html("Temp: " + dailyTemp + "°F");
                 $("#" + i).children(".wind").html("Wind: " + dailyWind + "MPH");
                 $("#" + i).children(".humidity").html("Humidity: " + dailyHumid + "%");
+
             }
 
         })
