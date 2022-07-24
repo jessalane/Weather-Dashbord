@@ -83,8 +83,8 @@ searchSub.click(function (event) {
             var dateToday = moment().format('L');
 
             // ADDING DATA TO CITY WEATHER SECTION
-            $("#temp").text("Temp: " + cityTemp + "°F");
-            $("#wind").text("Wind: " + cityWind + "MPH");
+            $("#temp").text("Temp: " + cityTemp + " °F");
+            $("#wind").text("Wind: " + cityWind + " MPH");
             $("#humidity").text("Humidity: " + cityHumid + "%");
             $("#nameTitle").text(cityName + " (" + dateToday + ")");
             $("#nameTitle").after(" <img src='http://openweathermap.org/img/wn/" + cityIcon + ".png'>");
@@ -122,8 +122,8 @@ searchSub.click(function (event) {
 
                         $("#" + i).children("h4").html(dateAdd);
                         $("#" + i).children(".weatherIcon").html("<img src='http://openweathermap.org/img/wn/" + dailyIcon + ".png'>");
-                        $("#" + i).children(".temp").html("Temp: " + dailyTemp + "°F");
-                        $("#" + i).children(".wind").html("Wind: " + dailyWind + "MPH");
+                        $("#" + i).children(".temp").html("Temp: " + dailyTemp + " °F");
+                        $("#" + i).children(".wind").html("Wind: " + dailyWind + " MPH");
                         $("#" + i).children(".humidity").html("Humidity: " + dailyHumid + "%");
 
                     }
