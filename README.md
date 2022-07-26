@@ -12,4 +12,4 @@ The following are pictures of how the weather dash should load on different size
 
 ![This is a screenshot image](./assets/images/collapsed%20with%20search.png)
 
-The following is a link to [the deployed code]([deployed link](LINK TO COME)).
+The following is a link to [the deployed code]([deployed link](https://jessalane.github.io/Weather-Dashbord/)).
