@@ -37,6 +37,7 @@ if(pulledSearches !== null) {
 
 // STARTS populateWeather ON CLICKING .historySearch
 $("#searchesHistory").on("click", ".historySearch", function() {
+    $("#searchCity").val('');
     
     city = $(this).prop('value');
 
@@ -45,8 +46,7 @@ $("#searchesHistory").on("click", ".historySearch", function() {
   });
 
 // STARTS populateWeather ON SUBMIT
-$("#searchSub").on("click", function(event) {
-    // PREVENTS THE DEFAULT CLEARING
+$("#searchForm").on("click", "#searchSub", function(event) {
     event.preventDefault();
 
     city = $("#searchCity").val();
