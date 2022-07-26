@@ -30,13 +30,13 @@ if(pulledSearches !== null) {
     var splitSearches = pulledSearches.split(',');
     for (var i = 0; i < splitSearches.length; i++) {
         if(splitSearches[i].length !== 0) {
-            $("hr").append("<input type='button' class='historySearch' value='" + splitSearches[i] + "'>");
+            $("#searchesHistory").append("<input type='button' class='historySearch' value='" + splitSearches[i] + "'>");
         }
     }
 }
 
 // STARTS populateWeather ON CLICKING .historySearch
-$(".historySearch").on("click", function() {
+$("#searchesHistory").on("click", ".historySearch", function() {
     
     city = $(this).prop('value');
 
@@ -44,15 +44,14 @@ $(".historySearch").on("click", function() {
     
   });
 
-// CAPTURING THE SEARCH SUBMISSION INPUT
-var searchSub = $("#searchSub");
-
 // STARTS populateWeather ON SUBMIT
-searchSub.click(function (event) {
+$("#searchSub").on("click", function(event) {
     // PREVENTS THE DEFAULT CLEARING
     event.preventDefault();
 
     city = $("#searchCity").val();
+
+    $("#searchesHistory").append("<input type='button' class='historySearch' value='" + city + "'>");
 
     populateWeather(city);
 
@@ -60,6 +59,13 @@ searchSub.click(function (event) {
 
 // CREATING A FUNCTION TO POPULATE THE API URL ON SUBMISSION
 function populateWeather() {
+
+    $("#cityData").css({
+        "display": "block"
+    });
+    $("#cityWeather").css({
+        "display": "block"
+    });
 
     // MY API KEY AND THE URL
     var APIKey = "9c4d817dd15f5df6514334a9cf6c9abe";
